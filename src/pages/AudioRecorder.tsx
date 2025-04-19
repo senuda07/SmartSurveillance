@@ -191,7 +191,7 @@ function AudioRecorder() {
       className="container mx-auto px-4 py-8"
     >
       <div className="text-center mt-6">
-        <h2 className="text-3xl font-bold text-white">🎙️ Welcome to SmartShield!</h2>
+        <h2 className="text-3xl font-bold text-white">🎙️SmartShield Audio</h2>
         <p className="mt-2 text-zinc-400">Your Smart Security Assisstant</p>
       </div>
 

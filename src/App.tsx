@@ -1,4 +1,5 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import VideoScanner from './pages/VideoScanner';
 import AudioRecorder from './pages/AudioRecorder'; // ✅ Import your new component
 import Navigation from './components/Navigation';
 
@@ -8,10 +9,8 @@ function App() {
       <div className="min-h-screen bg-black text-white">
         <div className="pb-20"> {/* Add padding for mobile navigation */}
           <Routes>
-            {/* Redirect from the root path to '/record-audio' */}
-            <Route path="/" element={<Navigate to="/record-audio" />} />
-
-            <Route path="/record-audio" element={<AudioRecorder />} />
+            <Route path="/" element={<VideoScanner />} />
+            <Route path="/record-audio" element={<AudioRecorder />} /> {/* ✅ Add this */}
           </Routes>
         </div>
         <Navigation />
