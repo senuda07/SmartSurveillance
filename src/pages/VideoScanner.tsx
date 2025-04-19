@@ -40,13 +40,15 @@ function Scanner() {
       }
   
       const result = await apiResponse.json();
-      const matches = result.matches;
+      const matches: string[] = result.matches;
   
-      // 👇 Conditional message
-      if (matches.includes('Unknown')) {
-        setResponseMessage('❌ No Regular Customer Detected');
+      // Remove duplicates and "Unknown"
+      const uniqueMatches = Array.from(new Set(matches.filter(name => name !== 'Unknown')));
+  
+      if (uniqueMatches.length > 0) {
+        setResponseMessage(`✅ Customer: ${uniqueMatches.join(', ')}`);
       } else {
-        setResponseMessage(`✅ Matches found: ${matches.join(', ')}`);
+        setResponseMessage('❌ No valid matches found');
       }
     } catch (error: any) {
       console.error('Error during upload:', error);
@@ -56,7 +58,7 @@ function Scanner() {
     }
   };
   
-
+  
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
