@@ -34,7 +34,7 @@ function AudioRecorder() {
   const handleStartRecording = async () => {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-      const mediaRecorder = new MediaRecorder(stream);
+      const mediaRecorder = new MediaRecorder(stream, { mimeType: 'audio/webm' });
       mediaRecorderRef.current = mediaRecorder;
       audioChunks.current = [];
 
@@ -303,24 +303,15 @@ function AudioRecorder() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 flex items-center justify-center bg-black/50 z-50"
+              className="fixed inset-0 z-10 flex items-center justify-center"
             >
               <motion.div
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.9, opacity: 0 }}
-                className="p-6 rounded-lg shadow-lg w-[90%] max-w-sm mx-4 bg-black text-white"
+                initial={{ scale: 0.5 }}
+                animate={{ scale: 1 }}
+                exit={{ scale: 0.5 }}
+                className="bg-white shadow-xl rounded-lg p-6"
               >
-                <h2 className="text-lg font-semibold mb-4">Successful</h2>
-                <p className="mb-6">Command Sent Successfully</p>
-                <div className="flex justify-end gap-4">
-                  <button
-                    onClick={() => setShowOkbutton(false)}
-                    className="px-4 py-2 rounded-lg transition-colors bg-green-500 hover:bg-green-500/80"
-                  >
-                    Okay
-                  </button>
-                </div>
+                <p className="text-lg font-semibold">Upload Successful!</p>
               </motion.div>
             </motion.div>
           )}
