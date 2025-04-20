@@ -189,7 +189,7 @@ function AudioRecorder() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 20 }}
-      className="container mx-auto px-4 py-8 select-none"
+      className="container mx-auto px-4 py-8"
     >
       <div className="text-center mt-6">
         <h2 className="text-3xl font-bold text-white">🎙️SmartShield Audio</h2>
@@ -233,8 +233,7 @@ function AudioRecorder() {
               onMouseUp={handleStopRecording}
               onTouchStart={handleStartRecording}
               onTouchEnd={handleStopRecording}
-              onDragStart={(e) => e.preventDefault()}
-              className={`w-full flex items-center justify-center space-x-2 select-none ${
+              className={`w-full flex items-center justify-center space-x-2 ${
                 isRecording ? 'bg-red-600 hover:bg-red-700' : 'bg-green-600 hover:bg-green-700'
               } transition-colors text-white font-medium py-4 rounded-2xl`}
             >
